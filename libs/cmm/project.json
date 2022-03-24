@@ -1,0 +1,37 @@
+{
+  "projectType": "library",
+  "root": "libs/cmm",
+  "sourceRoot": "libs/cmm/src",
+  "prefix": "appx",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/angular:package",
+      "outputs": [
+        "dist/libs/cmm"
+      ],
+      "options": {
+        "project": "libs/cmm/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/cmm/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/cmm/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": [
+        "coverage/libs/cmm"
+      ],
+      "options": {
+        "jestConfig": "libs/cmm/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
