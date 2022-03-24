@@ -1,5 +1,5 @@
 module.exports = {
-  displayName: 'nglibx-schematic',
+  displayName: 'website',
   preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
   globals: {
@@ -8,7 +8,7 @@ module.exports = {
       stringifyContentPathRegex: '\\.(html|svg)$',
     },
   },
-  coverageDirectory: '../../coverage/apps/nglibx-schematic',
+  coverageDirectory: '../../coverage/apps/website',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': 'jest-preset-angular',
   },

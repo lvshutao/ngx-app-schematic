@@ -1,5 +1,5 @@
 {
-  "name": "fsl",
+  "name": "nglibs-schematic",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
@@ -19,7 +19,13 @@
     "@angular/platform-browser": "~13.2.0",
     "@angular/platform-browser-dynamic": "~13.2.0",
     "@angular/router": "~13.2.0",
+    "@fsl/ngxapp": "^0.0.3",
+    "@fsl/ngxbase": "^0.0.3",
+    "@fsl/ngxeditor": "^0.0.3",
+    "@fsl/ngxmaz": "^0.0.3",
+    "@fsl/ngxupload": "^0.0.3",
     "@nrwl/angular": "13.9.4",
+    "my-tsbase": "^1.0.4",
     "rxjs": "~7.4.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.4"

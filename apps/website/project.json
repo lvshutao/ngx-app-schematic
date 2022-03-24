@@ -1,0 +1,115 @@
+{
+  "projectType": "application",
+  "root": "apps/website",
+  "sourceRoot": "apps/website/src",
+  "prefix": "app",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "options": {
+        "outputPath": "dist/apps/website",
+        "index": "apps/website/src/index.html",
+        "main": "apps/website/src/main.ts",
+        "polyfills": "apps/website/src/polyfills.ts",
+        "tsConfig": "apps/website/tsconfig.app.json",
+        "inlineStyleLanguage": "less",
+        "assets": [
+          "apps/website/src/favicon.ico",
+          "apps/website/src/assets",
+          {
+            "glob": "**/*",
+            "input": "node_modules/tinymce/skins",
+            "output": "/tinymce/skins/"
+          },
+          {
+            "glob": "**/*",
+            "input": "node_modules/tinymce/themes",
+            "output": "/tinymce/themes/"
+          },
+          {
+            "glob": "**/*",
+            "input": "node_modules/tinymce/plugins",
+            "output": "/tinymce/plugins/"
+          }
+        ],
+        "styles": [
+          "node_modules/@fsl/ngxbase/src/assets/preloader.css",
+          "node_modules/@fsl/ngxbase/src/assets/style.css",
+          "node_modules/@fsl/ngxmaz/src/assets/style.css",
+          "apps/website/src/styles.less"
+        ],
+        "scripts": [
+          "node_modules/tinymce/tinymce.min.js",
+          "node_modules/@fsl/ngxeditor/src/assets/zh_CN.js"
+        ],
+        "allowedCommonJsDependencies": [
+          "my-tsbase"
+        ]
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/website/src/environments/environment.ts",
+              "with": "apps/website/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "website:build:production"
+        },
+        "development": {
+          "browserTarget": "website:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "website:build"
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": [
+        "coverage/apps/website"
+      ],
+      "options": {
+        "jestConfig": "apps/website/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
