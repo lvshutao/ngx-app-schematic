@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "projects": {
+    "nglibx-schematic": "apps/nglibx-schematic",
+    "nglibx-schematic-e2e": "apps/nglibx-schematic-e2e"
+  }
+}
